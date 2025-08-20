@@ -3,7 +3,7 @@ name: Run Imgbb Automation
 # Agenda para rodar todo dia às 2h da manhã (UTC)
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch: # permite rodar manualmente pelo GitHub UI
 
 jobs:
