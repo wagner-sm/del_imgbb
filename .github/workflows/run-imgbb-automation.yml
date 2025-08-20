@@ -1,6 +1,6 @@
 name: Run Imgbb Automation
 
-# Agenda para rodar todo dia às 2h da manhã (UTC)
+# Agenda para rodar todo dia às 1h da manhã (UTC)
 on:
   schedule:
     - cron: '0 1 * * *'
