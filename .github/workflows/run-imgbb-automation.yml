@@ -1,0 +1,31 @@
+name: Run Imgbb Automation
+
+# Agenda para rodar todo dia às 2h da manhã (UTC)
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch: # permite rodar manualmente pelo GitHub UI
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    env:
+      CREDENTIALS_JSON: ${{ secrets.CREDENTIALS_JSON }}
+      TOKEN_JSON: ${{ secrets.TOKEN_JSON }}
+      GOOGLE_COOKIES_JSON: ${{ secrets.GOOGLE_COOKIES_JSON }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        run: node index.js
