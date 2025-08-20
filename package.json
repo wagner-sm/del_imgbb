@@ -1,7 +1,7 @@
 {
   "name": "imgbb-automation",
   "version": "1.0.0",
-  "description": "Automação com Playwright e Google Sheets",
+  "description": "AutomaÃ§Ã£o com Playwright e Google Sheets",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
