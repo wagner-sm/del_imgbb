@@ -3,10 +3,10 @@ const { google } = require('googleapis');
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const SPREADSHEET_ID = '1mf56UH_7u8AYOo8jhRnvrbY9ufRorhku9JnrkLdU0zw'; // entre /d/ e /edit
-const SHEET_NAME = 'Página1'; // ajuste se necessário
+const SHEET_NAME = 'PÃ¡gina1'; // ajuste se necessÃ¡rio
 const H_CELL = 'G2';
 
-// Autoriza Google Sheets usando variáveis de ambiente
+// Autoriza Google Sheets usando variÃ¡veis de ambiente
 async function authorize() {
   const credentials = JSON.parse(process.env.CREDENTIALS_JSON);
   const token = JSON.parse(process.env.TOKEN_JSON);
@@ -16,7 +16,7 @@ async function authorize() {
   return oAuth2Client;
 }
 
-// Lê IDs da célula
+// LÃª IDs da cÃ©lula
 async function buscarIds(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
   const res = await sheets.spreadsheets.values.get({
@@ -27,7 +27,7 @@ async function buscarIds(auth) {
   return res.data.values[0][0].split(',').map(s => s.trim()).filter(Boolean);
 }
 
-// Limpa a célula
+// Limpa a cÃ©lula
 async function limparIds(auth) {
   const sheets = google.sheets({ version: 'v4', auth });
   await sheets.spreadsheets.values.update({
@@ -38,7 +38,7 @@ async function limparIds(auth) {
   });
 }
 
-// Automação Playwright
+// AutomaÃ§Ã£o Playwright
 async function automateImgbbActions(imgId) {
   const cookies = JSON.parse(process.env.GOOGLE_COOKIES_JSON);
 
@@ -83,7 +83,7 @@ async function automateImgbbActions(imgId) {
     }
 
     await limparIds(auth);
-    console.log('Processo concluído! IDs apagados da planilha.');
+    console.log('Processo concluÃ­do! IDs apagados da planilha.');
   } catch (error) {
     console.error('Erro:', error);
   }
